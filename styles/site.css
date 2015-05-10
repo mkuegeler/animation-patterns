@@ -1,0 +1,50 @@
+/* colours: #e3653b = orange; #471b36 = dark violet; #438336 = dark green; */
+
+body { padding-top: 20px;padding-bottom: 10px;}
+
+.btn-outline{color:#e3653b;background-color:transparent;border-color:#e3653b}
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active{color:#fff;background-color:#e3653b;border-color:#e3653b}
+.btn-outline-inverse{color:#fff;background-color:transparent;border-color:#fff}
+.btn-outline-inverse:hover,
+.btn-outline-inverse:focus,
+.btn-outline-inverse:active{color:#e3653b;text-shadow:none;background-color:#fff;border-color:#fff}
+
+.bs-docs-booticon{display:block;font-weight:500;color:#fff;text-align:center;cursor:default;background-color:#e3653b;border-radius:15%}
+.bs-docs-booticon-sm{width:30px;height:30px;font-size:20px;line-height:28px}
+.bs-docs-booticon-lg{width:144px;height:144px;font-size:108px;line-height:140px}
+.bs-docs-booticon-inverse{color:#e3653b;background-color:#fff}
+.bs-docs-booticon-outline{background-color:transparent;border:1px solid #fff}
+
+
+.bs-docs-nav .navbar-brand,.bs-docs-nav .navbar-nav>li>a{font-weight:600;color:#471b36}
+.bs-docs-nav .navbar-nav>li>a:hover,.bs-docs-nav .navbar-nav>.active>a,
+.bs-docs-nav .navbar-nav>.active>a:hover{color:#e3653b;background-color:#fff}
+.bs-docs-nav .navbar-toggle .icon-bar{background-color:#471b36}
+.bs-docs-nav .navbar-header .navbar-toggle{border-color:#fff}.bs-docs-nav .navbar-header .navbar-toggle:hover,
+.bs-docs-nav .navbar-header .navbar-toggle:focus{background-color:#f9f9f9;border-color:#fff}
+
+.navbar { margin-bottom: 10px;}
+.bs-docs-masthead { background: #e3653b;}
+.list-group {color:#471B36;}
+
+.bs-docs-header {background: #e3653b; color: #FFFFFF;}
+.bs-docs-footer{padding-top:40px;padding-bottom:40px;margin-top:100px;color:#cccccc;text-align:center;border-top:1px solid #e5e5e5; background-color:#471b36;}
+.bs-docs-footer-links{padding-left:0;margin-top:20px;color:#cccccc}.bs-docs-footer-links li{display:inline;padding:0 2px}
+.bs-docs-footer-links li:first-child{padding-left:0}@media (min-width:768px){.bs-docs-footer p{margin-bottom:0}}
+.bs-docs-footer-links a {color:#cccccc}
+.bs-docs-footer-contact-a {color:#cccccc}
+.bs-docs-footer-copyright {background: #471b36; color:#cccccc; padding-top: 10px;padding-bottom: 30px;text-align:center;}
+
+  
+  
+  
+  
+  
+
+  
+ 
+}
+
+
