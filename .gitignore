@@ -25,3 +25,32 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Sublime Text 2     #
+######################
+*.sublime-project
+*.sublime-workspace
+
+# Dancer and perl specific files #
+##################################
+.SKIP
+config.yml
+
+# Aptana Studio #
+######################
+.project
+
+# gedit temporary files
+######################
+*.*~
