@@ -80,7 +80,7 @@
 <div class="page-header">
         <h4>TABLE OF CONTENTS</h4>
      </div>
-<ul id="hb_placeholder" class="list-group">		
+<ul id="hb_placeholder_01" class="list-group">		
 	</ul>	
    
   </div>  
@@ -88,98 +88,7 @@
 </div>
 </div>	
 
-<div class="container">
-
-<!-- start of chapter 1 --> 
-<div id="chapter_1">   
-<div class="page-header">
-    <h2>Example 1</h2>
-</div>
-<div id="embedded_svg_001"></div>
-<br/>
-<button type="button" id="full_screen_001" class="btn btn-default">Full Screen</button>			
-<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapse_svg_001_code" aria-expanded="false" aria-controls="collapse_svg_001_code">
-  SVG Source
-</button></p>
-<div class="collapse" id="collapse_svg_001_code">  
-    <pre id="embedded_svg_001_code"></pre>  
-</div>
-<p>Two animated nodes.</p>
-</div>      
-<!-- end of chapter 1 --> 
-
-<!-- start of chapter 2 --> 
-<div id="chapter_2">   
-<div class="page-header">
-    <h2>Example 2</h2>
-</div>
-<div id="embedded_svg_002"></div>
-<br/>
-<button type="button" id="full_screen_002" class="btn btn-default">Full Screen</button>			
-<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapse_svg_002_code" aria-expanded="false" aria-controls="collapse_svg_002_code">
-  SVG Source
-</button></p>
-<div class="collapse" id="collapse_svg_002_code">  
-    <pre id="embedded_svg_002_code"></pre>  
-</div>
-<p>A path which forms a circle consisting of two segments.</p>
-</div>      
-<!-- end of chapter 2 --> 
-
-<!-- start of chapter 3 --> 
-<div id="chapter_3">   
-<div class="page-header">
-    <h2>Example 3</h2>
-</div>
-<div id="embedded_svg_003"></div>
-<br/>
-<button type="button" id="full_screen_003" class="btn btn-default">Full Screen</button>			
-<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapse_svg_003_code" aria-expanded="false" aria-controls="collapse_svg_003_code">
-  SVG Source
-</button></p>
-<div class="collapse" id="collapse_svg_003_code">  
-    <pre id="embedded_svg_003_code"></pre>  
-</div>
-<p>A path which forms a circle consisting of two segments.</p>
-</div>      
-<!-- end of chapter 3 --> 
-
-<!-- start of chapter 4 --> 
-<div id="chapter_4">   
-<div class="page-header">
-    <h2>Example 4</h2>
-</div>
-<div id="embedded_svg_004"></div>
-<br/>
-<button type="button" id="full_screen_004" class="btn btn-default">Full Screen</button>			
-<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapse_svg_004_code" aria-expanded="false" aria-controls="collapse_svg_004_code">
-  SVG Source
-</button></p>
-<div class="collapse" id="collapse_svg_004_code">  
-    <pre id="embedded_svg_004_code"></pre>  
-</div>
-<p>Animation Pattern 4.</p>
-</div>      
-<!-- end of chapter 4 --> 
-
-<!-- start of chapter 5 --> 
-<div id="chapter_5">   
-<div class="page-header">
-    <h2>Example 5</h2>
-</div>
-<div id="embedded_svg_005"></div>
-<br/>
-<button type="button" id="full_screen_005" class="btn btn-default">Full Screen</button>			
-<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapse_svg_005_code" aria-expanded="false" aria-controls="collapse_svg_005_code">
-  SVG Source
-</button></p>
-<div class="collapse" id="collapse_svg_005_code">  
-    <pre id="embedded_svg_005_code"></pre>  
-</div>
-<p>Animation Pattern 5.</p>
-</div>      
-<!-- end of chapter 5 -->	  
-
+<div id="hb_placeholder_02" class="container">
 </div>
 
 <!-- Footer ================================================== -->
@@ -223,6 +132,83 @@
 
 <!-- require.js -->
 <script data-main="scripts/main.js" src="http://requirejs.org/docs/release/2.1.15/minified/require.js"></script>
+
+
+<!-- Handlebars Template 01 -->
+
+<script id="siteTemplate_01" type="text/x-handlebars-template">
+        {{#content}}
+            <li class="list-group-item">Example {{chapter}}</li>
+        {{/content}}
+</script>
+
+<script type="text/javascript">
+var source = document.getElementById("siteTemplate_01").innerHTML;
+var template = Handlebars.compile(source);
+var data = {
+    content: [
+    { "chapter": "1" },
+    { "chapter": "2" },
+    { "chapter": "3" },
+	{ "chapter": "4" }	
+    ]
+};
+document.getElementById("hb_placeholder_01").innerHTML = template(data);	
+</script>
+
+<!-- Handlebars Template 01 -->
+
+
+<!-- Handlebars Template 02 -->
+
+
+
+<script id="siteTemplate_02" type="text/x-handlebars-template">
+<!-- start of chapter x -->
+{{#examples}}	 
+<div id="{{chapter_id}}">   
+<div class="page-header">
+    <h2>{{chapter}}</h2>
+</div>
+<div id="{{embedded_svg_id}}"></div>
+<br/>
+<button type="button" id="{{full_screen_id}}" class="btn btn-default">Full Screen</button>			
+<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#{{collapse_svg_id}}" aria-expanded="false" aria-controls="{{collapse_svg_id}}">
+  SVG Source
+</button></p>
+<div class="collapse" id="{{collapse_svg_id}}">  
+    <pre id="{{embedded_svg_code}}"></pre>  
+</div>
+<p>Two animated nodes.</p>
+</div>
+{{/examples}}      
+<!-- end of chapter x --> 
+</script>
+
+
+
+<script type="text/javascript">
+var source = document.getElementById("siteTemplate_02").innerHTML;
+var template = Handlebars.compile(source);
+var data = {
+    examples: [
+    { "chapter_id": "chapter_1", "chapter": "Example 1", "embedded_svg_id": "embedded_svg_001", "full_screen_id": "full_screen_001", "collapse_svg_id": "collapse_svg_001_code", "embedded_svg_code": "embedded_svg_001_code"},
+		
+    { "chapter_id": "chapter_2", "chapter": "Example 2", "embedded_svg_id": "embedded_svg_002", "full_screen_id": "full_screen_002", "collapse_svg_id": "collapse_svg_002_code", "embedded_svg_code": "embedded_svg_002_code"},
+		
+    { "chapter_id": "chapter_3", "chapter": "Example 3", "embedded_svg_id": "embedded_svg_003", "full_screen_id": "full_screen_003", "collapse_svg_id": "collapse_svg_002_code", "embedded_svg_code": "embedded_svg_003_code"},
+		
+	{ "chapter_id": "chapter_4", "chapter": "Example 4", "embedded_svg_id": "embedded_svg_004", "full_screen_id": "full_screen_004", "collapse_svg_id": "collapse_svg_004_code", "embedded_svg_code": "embedded_svg_004_code"},
+
+    { "chapter_id": "chapter_5", "chapter": "Example 5", "embedded_svg_id": "embedded_svg_005", "full_screen_id": "full_screen_005", "collapse_svg_id": "collapse_svg_005_code", "embedded_svg_code": "embedded_svg_005_code"}		
+	
+    ]
+};
+document.getElementById("hb_placeholder_02").innerHTML = template(data);	
+</script>
+
+<!-- Handlebars Template 02 -->
+
 <!-- screenfull.js -->
 <script src="http://sindresorhus.com/screenfull.js/src/screenfull.js"></script>
 <script>
@@ -256,28 +242,6 @@
 }
 </script>
 
-<!-- Handlebars Template -->
 
-<script id="siteTemplate" type="text/x-handlebars-template">
-        {{#content}}
-            <li class="list-group-item">Example {{chapter}}</li>
-        {{/content}}
-</script>
-
-<script type="text/javascript">
-var source = document.getElementById("siteTemplate").innerHTML;
-var template = Handlebars.compile(source);
-var data = {
-    content: [
-    { "chapter": "1" },
-    { "chapter": "2" },
-    { "chapter": "3" },
-	{ "chapter": "4" }	
-    ]
-};
-document.getElementById("hb_placeholder").innerHTML = template(data);	
-</script>
-
-<!-- Handlebars Template -->
   </body>
 </html>
