@@ -38,7 +38,7 @@ function svg_pattern (v) {
 		// initialize the svg root element		
 		var svg = el.svg([{id:"svg_00"+v, style:"background-color:#cccc86"}]);
 		
-		var canvas =  el.g([{id:"canvas_00"+v,layer: svg.id, transform:"translate(5,5),scale(1)"}]);
+		var canvas =  el.g([{id:"canvas_00"+v,layer: svg.id, transform:"translate(-5,0),scale(1)"}]);
 		
 		//////////////////////////////////
 				
@@ -47,11 +47,33 @@ function svg_pattern (v) {
 		
 		//style["element_001"][2][0].style = "stroke:none; fill:#cc00ff;font-size: 1pt; text-anchor: middle;";
 		
-		//style["animateExchange"] = style["animateExchange_001"];
+		// id:"aniPattern_001_00"+v, id:"aniPattern_002_00"+v,
 		
-		var aniPattern_001 =  el.animateExchange([{layer: canvas.id, id:"aniPattern_001_00"+v, transform:"translate(15,15),scale(4)"}]);
+		var aniPattern_001 =  el.animateExchangeNode([{layer: canvas.id,  transform:"translate(15,15),scale(2)"}]);
 		
-		var aniPattern_002 =  el.animateExchange([{layer: canvas.id, id:"aniPattern_002_00"+v, transform:"translate(31,15),scale(4),rotate(180)"}]);  
+		style["animateExchangeNode"][2][1].data = 3;
+		style["animateExchangeNode"][3][1].data = 4;
+		style["animateExchangeNode"][4][0].style = "visibility:visible";
+		style["animateExchangeNode"][4][1].data = 5;
+		
+		
+		var aniPattern_002 =  el.animateExchangeNode([{layer: canvas.id,  transform:"translate(31,15),scale(2)"}]);  
+		
+		style["animateExchangeNode"][2][1].data = 6;
+		style["animateExchangeNode"][3][1].data = 7;
+		//style["animateExchangeNode"][4][0].style = "visibility:visible";
+		//style["animateExchangeNode"][4][1].data = 8;
+		
+		
+		var aniPattern_003 =  el.animateExchangeNode([{layer: canvas.id,  transform:"translate(15,23),scale(2)"}]); 
+		
+		style["animateExchangeNode"][2][1].data = 8;
+		style["animateExchangeNode"][3][1].data = 9;
+		style["animateExchangeNode"][4][0].style = "visibility:visible";
+		style["animateExchangeNode"][4][1].data = 10;
+		
+		
+		var aniPattern_004 =  el.animateExchangeNode([{layer: canvas.id,  transform:"translate(31,23),scale(2)"}]);  
 		
 		
 	

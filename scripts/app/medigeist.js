@@ -1146,6 +1146,123 @@ medigeist.prototype.animateExchange = function (params) {
 	
 };
 
+///////////////////////////////////////////////////////////////////////////////
+// animation pattern: exchange two node elements
+medigeist.prototype.animateExchangeNode = function (params) {
+	
+	var el = this;
+	var element;
+	var children = null;
+	var path, arc, g1, node, a1, a2, a3, id;
+	var i = 0;
+	
+	if (!params) {  params = []; }
+	
+	var block_id = params[0].block ? params[0].block: this.getNameOfCall(arguments.callee); // if no params: use default values defined in style.js with same name as function
+		
+	var block = this.getDef()[block_id] ? this.getDef()[block_id]: this.getDef().default; // default: name of function = animateExchangeNode
+
+    var group = this.g(params);
+	
+	var nodeElement = block[0][0];	
+	
+	var arcs = block[1];
+	
+	var arclist = [];
+	
+	arcs.forEach(function(e) { el.getDef()[nodeElement.block][0][0].d = e.d;  
+		                                nodeElement.layer = group.id; 
+							                    nodeElement.id = el.createID(el.getDef().idLength); 
+												nodeElement.transform = e.transform;
+							                                        arclist.push(el.element([nodeElement]) );    }); 
+	
+		
+	// the circle
+	
+	//var element1 = traceLine[2].block;
+		
+	//el.getDef()[arcs[2].block][0][0].d = arcs[0].d; 
+	
+	//arcs[2].layer = group.id;
+	
+	//arcs[2].id = el.createID(this.getDef().idLength);
+
+	//var arc1 =  el.element([arcs[2]]);
+	
+	
+		
+	//var element2 = traceLine[2].block;
+		
+	//el.getDef()[arcs[2].block][0][0].d = arcs[1].d; 
+	
+	//arcs[2].layer = group.id;
+	
+	//arcs[2].id = el.createID(this.getDef().idLength);	
+
+	//var arc2 =  el.element([arcs[2]]);
+		
+	
+	// First Node
+	
+	var node_1 = block[2];
+	
+	node_1[0].layer = group.id;
+	
+	node_1[0].id = el.createID(this.getDef().idLength); 
+	
+	var ElementGroup1 =  el.g([node_1[0]]); // 90
+	
+	
+	node_1[1].layer = ElementGroup1.id;
+	
+	node_1[1].id = el.createID(this.getDef().idLength); 
+	
+	var nodeElement_1 =  el.element([node_1[1]]); 
+	
+	// Second Node
+	
+	var node_2 = block[3];
+	
+	node_2[0].layer = group.id;
+	
+	node_2[0].id = el.createID(this.getDef().idLength); 
+	
+	var ElementGroup2 =  el.g([node_2[0]]); // 90
+	
+	
+	node_2[1].layer = ElementGroup2.id;
+	
+	node_2[1].id = el.createID(this.getDef().idLength); 
+	
+	var nodeElement_2 =  el.element([node_2[1]]); 
+	
+	
+	// Third Node
+	
+	var node_3 = block[4];
+	
+	node_3[0].layer = group.id;
+	
+	node_3[0].id = el.createID(this.getDef().idLength); 
+	
+	var ElementGroup3 =  el.g([node_3[0]]); // 90
+	
+	
+	node_3[1].layer = ElementGroup3.id;
+	
+	node_3[1].id = el.createID(this.getDef().idLength); 
+	
+	var nodeElement_3 =  el.element([node_3[1]]); 
+	
+	
+	
+	
+	
+	
+	return group;
+	
+};
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // generic test function
