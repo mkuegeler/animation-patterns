@@ -38,42 +38,61 @@ function svg_pattern (v) {
 		// initialize the svg root element		
 		var svg = el.svg([{id:"svg_00"+v, style:"background-color:#cccc86"}]);
 		
-		var canvas =  el.g([{id:"canvas_00"+v,layer: svg.id, transform:"translate(-5,0),scale(1)"}]);
+		var canvas =  el.g([{id:"canvas_00"+v,layer: svg.id, transform:"translate(1,3),scale(1)"}]);
 		
 		//////////////////////////////////
 				
 		
-		//style["element_001"][0][0].style = "fill:#ff4400;stroke:#ffcccc;stroke-width:0.1px;";
+		// overwrite default values
 		
-		//style["element_001"][2][0].style = "stroke:none; fill:#cc00ff;font-size: 1pt; text-anchor: middle;";
+		// node element with circles and character (number)
+		// element_001
 		
-		// id:"aniPattern_001_00"+v, id:"aniPattern_002_00"+v,
+		// the circle
+		// style["element_001"][0][0].style = "fill:#ff4400;stroke:#ffcccc;stroke-width:0.1px;";
 		
-		var aniPattern_001 =  el.animateExchangeNode([{layer: canvas.id,  transform:"translate(15,15),scale(2)"}]);
+		// the number
+		// style["element_001"][2][0].style = "stroke:none; fill:#cc00ff;font-size: 1pt; text-anchor: middle;";
 		
-		style["animateExchangeNode"][2][1].data = 3;
-		style["animateExchangeNode"][3][1].data = 4;
-		style["animateExchangeNode"][4][0].style = "visibility:visible";
-		style["animateExchangeNode"][4][1].data = 5;
+		// arc element
+		// element_009
+		// style["element_009"][0][0].style = "visibility:hidden";
+		
+		var amount = 8;
+		
+		var offset = 8;
+		
+		var scale = 2;
+		
+		comp.row(amount,offset).forEach(function (e,i) { e.layer = canvas.id; e.transform = e.transform+",scale("+scale+")"; el.animateExchangeNode([e]);  i++; } );
+		
+		// var aniPattern_001 =  el.animateExchangeNode([{layer: canvas.id,  transform:"translate(0,0),scale(2)"}]);
 		
 		
-		var aniPattern_002 =  el.animateExchangeNode([{layer: canvas.id,  transform:"translate(31,15),scale(2)"}]);  
 		
-		style["animateExchangeNode"][2][1].data = 6;
-		style["animateExchangeNode"][3][1].data = 7;
+		//style["animateExchangeNode"][2][1].data = 3;
+		//style["animateExchangeNode"][3][1].data = 4;
+		//style["animateExchangeNode"][4][0].style = "visibility:visible";
+		//style["animateExchangeNode"][4][1].data = 5;
+		
+		
+		// var aniPattern_002 =  el.animateExchangeNode([{layer: canvas.id,  transform:"translate(8,0),scale(2)"}]);  
+		
+		//style["animateExchangeNode"][2][1].data = 6;
+		//style["animateExchangeNode"][3][1].data = 7;
 		//style["animateExchangeNode"][4][0].style = "visibility:visible";
 		//style["animateExchangeNode"][4][1].data = 8;
 		
 		
-		var aniPattern_003 =  el.animateExchangeNode([{layer: canvas.id,  transform:"translate(15,23),scale(2)"}]); 
+		// var aniPattern_003 =  el.animateExchangeNode([{layer: canvas.id,  transform:"translate(16,0),scale(2)"}]); 
 		
-		style["animateExchangeNode"][2][1].data = 8;
-		style["animateExchangeNode"][3][1].data = 9;
-		style["animateExchangeNode"][4][0].style = "visibility:visible";
-		style["animateExchangeNode"][4][1].data = 10;
+		//style["animateExchangeNode"][2][1].data = 8;
+		//style["animateExchangeNode"][3][1].data = 9;
+		//style["animateExchangeNode"][4][0].style = "visibility:visible";
+		//style["animateExchangeNode"][4][1].data = 10;
 		
 		
-		var aniPattern_004 =  el.animateExchangeNode([{layer: canvas.id,  transform:"translate(31,23),scale(2)"}]);  
+		// var aniPattern_004 =  el.animateExchangeNode([{layer: canvas.id,  transform:"translate(24,0),scale(2)"}]);  
 		
 		
 	
