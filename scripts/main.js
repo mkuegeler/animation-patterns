@@ -58,13 +58,41 @@ function svg_pattern (v) {
 		// element_009
 		// style["element_009"][0][0].style = "visibility:hidden";
 		
-		var amount = 8;
 		
-		var offset = 8;
+		var amountR = 8;
+		var amountC = 8;
 		
-		var scale = 2;
+		var offsetR = 8;
+		var offsetC = 8;
 		
-		comp.row(amount,offset).forEach(function (e,i) { e.layer = canvas.id; e.transform = e.transform+",scale("+scale+")"; el.animateExchangeNode([e]);  i++; } );
+		var scale = 1;
+		
+		
+		// hide arcs
+		// style["element_009"][0][0].style = "visibility:hidden";
+		
+		
+		
+		// replace node element 1
+		style["animateExchangeNode"][2][1].block = "element_003";
+		style["animateExchangeNode"][3][1].block = "element_003";
+		//style["animateExchangeNode"][4][1].block = "element_003";
+		
+		// var row1 =  el.g([{layer: canvas.id}]);
+		
+		var colArray = [];
+		
+		comp.col(amountC,offsetC).forEach(function (e) { e.layer = canvas.id;  el.g([e]);  colArray.push(e.id); } ); 		
+		  colArray.forEach(function (f) {  		
+		       comp.row(amountR,offsetR).forEach(function (e,i) { e.layer = f;
+			     e.transform = e.transform+",scale("+scale+")"; el.animateExchangeNode([e]);  i++; } );		
+		} ); 
+		
+		
+		//comp.row(amountR,offsetR).forEach(function (e,i) { e.layer = canvas.id; 
+		//	e.transform = e.transform+",scale("+scale+")"; if(i== (amountR-1)){style["element_009"][0][0].style = "visibility:hidden";}; 	
+		//	el.animateExchangeNode([e]);  i++; } );		
+		 
 		
 		// var aniPattern_001 =  el.animateExchangeNode([{layer: canvas.id,  transform:"translate(0,0),scale(2)"}]);
 		

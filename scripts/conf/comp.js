@@ -23,6 +23,7 @@ function createCol (amount, offset) {
 	
 	return rowArray;
 }
+
 // function c (a) { return a;}
 define({
 
@@ -39,6 +40,6 @@ name: "simple row",
 // converts generix row calculation into svg translate structure    
 row: function (am,of) { return createRow(am,of).map(function (e) { return {transform: "translate("+e.x+","+e.y+")"};        }); },	
 
-col: function (am,of) { return createCol(am,of).map(function (e) { return {transform: "translate("+e.x+","+e.y+")"};        }); }
+col: function (am,of) { return createCol(am,of).map(function (e) { return {transform: "translate("+e.x+","+e.y+")"};        }); },
 
 });
