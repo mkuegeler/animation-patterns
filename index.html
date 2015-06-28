@@ -57,7 +57,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="../" class="navbar-brand">MEDIGEIST</a>
+      <a href="../" class="navbar-brand">MEDIGEIST DEVELOPMENT CONSOLE</a>
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
      
@@ -146,7 +146,7 @@
 var source = document.getElementById("siteTemplate_01").innerHTML;
 var template = Handlebars.compile(source);
 
-var amount = 1;
+var amount = 2;
 var data = {content: [] };
 
 for (i=1; i<=amount; i++) { data.content.push({"chapter": i});  
@@ -193,7 +193,7 @@ document.getElementById("hb_placeholder_01").innerHTML = template(data);
 var source = document.getElementById("siteTemplate_02").innerHTML;
 var template = Handlebars.compile(source);
 
-var amount = 1;
+var amount = 2;
 var data = {examples: [] };
 var screen_name, embedded_name;
 
@@ -203,6 +203,8 @@ for (i=1; i<=amount; i++) { data.examples.push({"chapter_id": "chapter_"+i, "cha
 
 document.getElementById("hb_placeholder_02").innerHTML = template(data);
 
+
+// I don't know why this doesn't work:
 // for (i=1; i<=amount; i++) {
 // screen_name = "#full_screen_00"+i; embedded_name = "embedded_svg_00"+i;
 
@@ -220,6 +222,11 @@ document.getElementById("hb_placeholder_02").innerHTML = template(data);
 <script>
    $('#full_screen_001').click(function () {
 	var el = document.getElementById('embedded_svg_001');   
+    screenfull.toggle(el);
+   });
+   
+   $('#full_screen_002').click(function () {
+	var el = document.getElementById('embedded_svg_002');   
     screenfull.toggle(el);
    });
  

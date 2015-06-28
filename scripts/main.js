@@ -24,9 +24,58 @@ function   (comp,style) {
 		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
+function svg_animateExchange (v) {
+		
+        
+		
+	    style.root = "embedded_svg_00"+v;
+		var code_area = "embedded_svg_00"+v+"_code";
+	
+		// get instance of medigeist object
+		var el = new medigeist(style);
+		// initialize the svg root element		
+		var svg = el.svg([{id:"svg_00"+v, style:"background-color:#cccccc"}]);
+	
+		var canvas =  el.g([{id:"canvas_00"+v,layer: svg.id, transform:"translate(-6,-3),scale(1.5)"}]);
+		
+		//////////////////////////////////		
+				
+		
+		style["element_001"][0][0].style = "fill:#ff4400;stroke:#ffcccc;stroke-width:0.1px;";
+		
+		style["element_001"][2][0].style = "stroke:none; fill:#cc00ff;font-size: 1pt; text-anchor: middle;";
+		
+		// arc element
+		// element_009
+		style["animateExchange_arc"][0][0].style = "visibility:hidden";
+		
+		
+				
+		var aniPattern_001 =  el.animateExchange([{layer: canvas.id, id:"aniPattern_001_"+v, transform:"translate(15,15),scale(4)"}]); 
+		
+		style["animateExchange"][1][1].transform = "rotate(180)";
+		
+		style["animateExchange"][2][1].transform = "rotate(90)";
+		
+		// style["animateExchange"][1][1].data = 2;
+		
+		// style["animateExchange"][2][1].data = 1;
+		
+		
+		var aniPattern_002 =  el.animateExchange([{layer: canvas.id, id:"aniPattern_002_"+v, transform:"translate(31,15),scale(4),rotate(180)"}]); 
+	
+		//////////////////////////////////
+		
+		el.writeCode (code_area);
+		
+		
+	}
+
+	svg_animateExchange (1);
+		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
-function svg_pattern (v) {
+function svg_animateExchangeNode (v) {
 	
 	
 		
@@ -56,7 +105,7 @@ function svg_pattern (v) {
 		
 		// arc element
 		// element_009
-		// style["element_009"][0][0].style = "visibility:hidden";
+		// style["element_009"][0][0].style = "visibility:visible";
 		
 		
 		var amountR = 8;
@@ -131,11 +180,7 @@ function svg_pattern (v) {
 		
 }
 
-svg_pattern (1);
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+svg_animateExchangeNode (2);
     
 }
 

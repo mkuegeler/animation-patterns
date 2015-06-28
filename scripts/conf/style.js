@@ -264,12 +264,24 @@ element_009: [
 
 ],
 
+// arc
+animateExchange_arc: [
+
+[
+   {typeOf: "path", d: "M 0,0 A-1,-1 0 0,1 0,4", style: "fill:none;stroke:#000000;stroke-width:0.01px;"}
+   
+                              
+]
+
+],
+
+
 animateExchange: [
 
 [
 	{d: "M 0,0 A1,1 0 1,1 4,0"}, // 0
 	{d: "M 0,0 A-1,-1 0 1,0 0,4"},
-    {block:"element_009", transform:"translate(0,0)"}, // 1. Arc, layer: canvas.id,  style["element_009"][0][0].d = {0};   
+    {block:"animateExchange_arc", transform:"translate(0,0)"}, // 1. Arc, layer: canvas.id,  style["element_009"][0][0].d = {0};   
                               
 ],
 
@@ -356,6 +368,7 @@ animateExchangeNode: [
 ]
 
 ],
+
 button_001: [
 [
    {typeOf: "circle", r: 0.8, cx : 0, cy: 0, style: "fill:#cccccc"}
