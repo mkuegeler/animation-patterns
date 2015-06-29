@@ -57,12 +57,21 @@ function svg_animateExchange (v) {
 		
 		style["animateExchange"][2][1].transform = "rotate(90)";
 		
-		// style["animateExchange"][1][1].data = 2;
+		style["animateExchange"][1][1].data = 2;
 		
-		// style["animateExchange"][2][1].data = 1;
+		style["animateExchange"][2][1].data = 2;
+		
+		console.log(aniPattern_001.children[2].children[0].children[3]);
 		
 		
 		var aniPattern_002 =  el.animateExchange([{layer: canvas.id, id:"aniPattern_002_"+v, transform:"translate(31,15),scale(4),rotate(180)"}]); 
+		
+		
+		style["animateExchange"][1][1].data = 1;
+		
+		style["animateExchange"][2][1].data = 1;
+		
+		
 	
 		//////////////////////////////////
 		

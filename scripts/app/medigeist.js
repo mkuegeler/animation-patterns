@@ -1008,12 +1008,6 @@ medigeist.prototype.animateExchange = function (params) {
 
 	var arcc_003_1 =  el.element([traceLine[2]]);
 	
-	// var arcc_003_1 =  el.element([{layer: group.id, block:element, transform:"translate(0,0)"}]);
-	
-	// console.log(traceLine[2]);
-	
-	// console.log(arcc_003_1);
-	
 	var node_1 = block[1];
 	
 	node_1[0].layer = group.id;
@@ -1029,20 +1023,7 @@ medigeist.prototype.animateExchange = function (params) {
 	
 	var node_003_1 =  el.element([node_1[1]]); 
 	
-	// var grou_003_1 =  el.g([{ layer: group.id, transform:"translate(0,0), rotate(0)"}]); // 90
-	
-	// var node_003_1 =  el.element([{layer: grou_003_1.id, block:"element_001", data: "1", transform:"rotate(0)"}]); 
-	
-	
-	// var anim_003_1b =  el.animateMotion([{layer: node_003_1.id, id: animateMotion_1_id, path: path_003_1, begin: node_003_1.id+".click", dur:3,  rotate:0}]);
-	
-	// var anim_003_1bb =  el.animateTransform([{layer: node_003_1.id, values:"4,0;0,0", begin:anim_003_1b.id+".end", dur:1, fill:"freeze", repeatCount: 1}]);
-	
-	// var anim_003_1a = el.animate([{layer: grou_003_1.id, attributeType:"CSS", attributeName:"visibility", from:"visible", begin: animateMotion_1_id+".end-1.5", to:"hidden",dur:3}]);
-	
-	// var anim_003_1c = el.animate([{layer: grou_003_1.id, attributeType:"CSS", attributeName:"visibility", from:"hidden", begin: animateMotion_2_id+".end-1.5", to:"visible",dur:3}]);
-	
-	
+		
 	node_1[2].layer = node_003_1.id;
 	
 	node_1[2].id = animateMotion_1_id; 
@@ -1081,18 +1062,7 @@ medigeist.prototype.animateExchange = function (params) {
 	
 	el.getDef()[element][0][0].d = path_003_2; 
 	
-	// var grou_003_2 =  el.g([{ layer: group.id, transform:"translate(4,0), rotate(90)", style:"visibility:hidden" }]); // 90
-	
-	// var node_003_2 =  el.element([{layer: grou_003_2.id, block:"element_001", data: "1", transform:"rotate(270)"}]); 
-	
-	// var anim_003_2b =  el.animateMotion([{layer: node_003_2.id, id: animateMotion_2_id, path: path_003_2, begin: node_003_2.id+".click", dur:3,  rotate:0}]);
-	
-	// var anim_003_2bb =  el.animateTransform([{layer: node_003_2.id, values:"0,0;4,0", begin:anim_003_2b.id+".end", dur:1, repeatCount: 1}]);
-	
-	// var anim_003_2a = el.animate([{layer: grou_003_2.id, attributeType:"CSS", attributeName:"visibility", from:"hidden", begin: animateMotion_1_id+".end-1.5", to:"visible",dur:3}]);
-	
-	// var anim_003_2c = el.animate([{layer: grou_003_2.id, attributeType:"CSS", attributeName:"visibility", from:"visible", begin: animateMotion_2_id+".end-1.5", to:"hidden",dur:3}]);
-	
+		
 	var node_2 = block[2];
 	
 	node_2[0].layer = group.id;
