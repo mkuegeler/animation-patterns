@@ -17,9 +17,41 @@ requirejs(['comp', 'style', 'app/medigeist'],
 function   (comp,style) {	 
 	 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+function notebook (v) {
+	
+    style.root = "embedded_svg_00"+v;
+	var code_area = "embedded_svg_00"+v+"_code";
+
+	// get instance of medigeist object
+	var el = new medigeist(style);
+	// initialize the svg root element		
+	var svg = el.svg([{id:"svg_00"+v, style:"background-color:#cccccc"}]);
+
+	var canvas =  el.g([{id:"canvas_00"+v,layer: svg.id, transform:"translate(2,5),scale(1)"}]);
+	
+	var amountR = 4;	
+	var offsetR = 8;
+	
+	
+	var scale = 2;
+
+	
+	// replace node element 1
+	style["animateExchangeNode"][2][1].block = "element_003";
+	style["animateExchangeNode"][3][1].block = "element_003";
+	
+	
+    comp.row(amountR,offsetR).forEach(function (e,i) { e.layer = canvas.id;
+     e.transform = e.transform+",scale("+scale+")"; el.animateExchangeNode([e]);  i++; } );	
+
+	
+	
+	el.writeCode (code_area);
+	
+	
+}		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+notebook (1);		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -80,7 +112,7 @@ function svg_animateExchange (v) {
 		
 	}
 
-	svg_animateExchange (1);
+	// svg_animateExchange (1);
 		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		

@@ -68,7 +68,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="../" class="navbar-brand">MEDIGEIST DEVELOPMENT CONSOLE</a>
+      <a href="../" class="navbar-brand">MEDIGEIST INTERACTIVE CONSOLE</a>
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
      
@@ -84,22 +84,37 @@
 
 
     <!-- Page content of course! -->
-     <div class="bs-docs-header" id="content">
+  <div class="bs-docs-header" id="content">
   <div class="container">
-      
-      <div id="table_of_content">   
-<div class="page-header">
-        <h4>TABLE OF CONTENTS</h4>
-     </div>
-<ul id="hb_placeholder_01" class="list-group">		
-	</ul>	
-   
+     <div id="table_of_content">   
+         <div id="hb_placeholder_01">		
+	</div>	
   </div>  
     
 </div>
 </div>	
 
-<div id="hb_placeholder_02" class="container">
+<div class="container">
+<!-- start of chapter x -->
+ 
+<div id="chapter_1">
+
+ 
+<div id="embedded_svg_001"></div>
+<br/>
+<button type="button" id="full_screen_001" class="btn btn-default">Full Screen</button>			
+<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapse_svg_001_code" aria-expanded="false" aria-controls="collapse_svg_001_code">
+  SVG Source
+</button></p>
+<div class="collapse" id="collapse_svg_001_code">  
+    <pre id="embedded_svg_001_code"></pre>  
+</div>
+<p>Two animated nodes.</p>
+</div>
+  
+<!-- end of chapter x --> 	
+	
+	
 </div>
 
 <!-- Footer ================================================== -->
@@ -139,27 +154,34 @@
 <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
 
 <!-- Javascript code prettifier -->
-<!-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=desert"></script> -->
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=desert"></script> 
 
 <!-- require.js -->
 <script data-main="scripts/main.js" src="http://requirejs.org/docs/release/2.1.15/minified/require.js"></script>
 
 <!-- Handlebars Template 01 -->
 
-<script id="siteTemplate_01" type="text/x-handlebars-template">
-        {{#content}}
-            <li class="list-group-item">Example {{chapter}}</li>
+<script id="formTemplate" type="text/x-handlebars-template">
+	<form>
+        {{#content}} 
+			  <div class="form-group">
+			    <label for="codeInput_{{line}}">Line {{line}}</label>
+			    <input type="text" class="form-control" id="codeInput_{{line}}" placeholder="Code">
+			  </div>
+			 		
         {{/content}}
+		  <button type="submit" class="btn btn-default">Submit</button>
+		</form>
 </script>
 
 <script type="text/javascript">
-var source = document.getElementById("siteTemplate_01").innerHTML;
+var source = document.getElementById("formTemplate").innerHTML;
 var template = Handlebars.compile(source);
 
-var amount = 1;
+var amount = 2;
 var data = {content: [] };
 
-for (i=1; i<=amount; i++) { data.content.push({"chapter": i});  
+for (i=1; i<=amount; i++) { data.content.push({"line": i});  
 
 }
 
@@ -170,88 +192,20 @@ document.getElementById("hb_placeholder_01").innerHTML = template(data);
 <!-- Handlebars Template 01 -->
 
 
-<!-- Handlebars Template 02 -->
-
-
-
-<script id="siteTemplate_02" type="text/x-handlebars-template">
-<!-- start of chapter x -->
-{{#examples}}	 
-<div id="{{chapter_id}}">
-
-<div>
-<form>
-  <div class="form-group">
-    <label for="exampleInput1">Code</label>
-    <input type="email" class="form-control" id="exampleInput1" placeholder="Code">
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
-</div>
-<br/>   
-<div id="{{embedded_svg_id}}"></div>
-<br/>
-<button type="button" id="{{full_screen_id}}" class="btn btn-default">Full Screen</button>			
-<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#{{collapse_svg_id}}" aria-expanded="false" aria-controls="{{collapse_svg_id}}">
-  SVG Source
-</button></p>
-<div class="collapse" id="{{collapse_svg_id}}">  
-    <pre id="{{embedded_svg_code}}"></pre>  
-</div>
-<p>Two animated nodes.</p>
-</div>
-{{/examples}}      
-<!-- end of chapter x --> 
-</script>
-
 <!-- screenfull.js -->
 <script src="http://sindresorhus.com/screenfull.js/src/screenfull.js"></script>
 
-<script type="text/javascript">
-var source = document.getElementById("siteTemplate_02").innerHTML;
-var template = Handlebars.compile(source);
-
-var amount = 1;
-var data = {examples: [] };
-var screen_name, embedded_name;
-
-for (i=1; i<=amount; i++) { data.examples.push({"chapter_id": "chapter_"+i, "chapter": "Example "+i, "embedded_svg_id": "embedded_svg_00"+i, "full_screen_id": "full_screen_00"+i, "collapse_svg_id": "collapse_svg_00"+i+"_code", "embedded_svg_code": "embedded_svg_00"+i+"_code"});  
-
-}
-
-document.getElementById("hb_placeholder_02").innerHTML = template(data);
-
-
-// I don't know why this doesn't work:
-// for (i=1; i<=amount; i++) {
-// screen_name = "#full_screen_00"+i; embedded_name = "embedded_svg_00"+i;
-
-// $("#full_screen_00"+i).click(function () {
-// var el = document.getElementById(embedded_name);   
-// screenfull.toggle(document.getElementById(embedded_name));
-// });	
-// }
-
-
 </script>
 
-<!-- Handlebars Template 02 -->
 
 <script>
    $('#full_screen_001').click(function () {
 	var el = document.getElementById('embedded_svg_001');   
     screenfull.toggle(el);
    });
-   
-   $('#full_screen_002').click(function () {
-	var el = document.getElementById('embedded_svg_002');   
-    screenfull.toggle(el);
-   });
- 
+
 </script>
 
- 
-	
 
 
   </body>
