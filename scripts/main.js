@@ -112,7 +112,7 @@ function svg_animateExchange (v) {
 		
 	}
 
-	// svg_animateExchange (1);
+	 svg_animateExchange (2);
 		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
@@ -221,7 +221,7 @@ function svg_animateExchangeNode (v) {
 		
 }
 
-// svg_animateExchangeNode (2);
+svg_animateExchangeNode (3);
     
 }
 
