@@ -33,7 +33,9 @@ function canvas_1 (v) {
 	
 	var rect =  el.rect([{layer: canvas.id}]); 
 	
-	var text =  el.text([{layer: canvas.id, data: "test"}]); 
+	// var text =  el.text([{layer: canvas.id}, { data: "test"}]); 
+	
+	var text =  el.text([{layer: canvas.id},{data: "1"}]); 
 		
 }
 canvas_1 (1);
