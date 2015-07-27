@@ -484,15 +484,16 @@ medigeist.prototype.text = function(params)
 {
     var data;    
 	// text data can be a simple string
-	if (typeof(params) == 'string') {  data = params; }        
+	//if (typeof(params) == 'string') {  data = params; }        
         // if params array contains data as first and only element      
-        if (params && params[0].data) {  data = params[0].data; }
-	    if (params && params[1].data) {  data = params[1].data; }
+      
+	  // if (params && params[1].data) {  data = params[1].data; }
 
         // get the name of the method which identifies the type of the element
 	// var type = this.getNameOfCall(arguments.callee);
         // if no params: set an empty array      
-        if (!params) {  params = [];  data = this.getDef().text[1].data; }
+        if (!params) {  params = [];  data = this.getDef().text[1].data; } else if (params && params[0].data) {  data = params[0].data; }
+		
         var element = this.geometry(this.checkParams(params,this.getNameOfCall(arguments.callee))[0]);
 	
         var el =  document.getElementById(element.id);

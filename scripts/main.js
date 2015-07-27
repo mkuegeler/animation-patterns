@@ -15,6 +15,28 @@ requirejs.config({
 requirejs(['comp', 'style', 'app/medigeist'],
 
 function   (comp,style) {	 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function canvas_1 (v) {
+
+    style.root = "embedded_svg_00"+v;
+	var code_area = "embedded_svg_00"+v+"_code";
+
+	// get instance of medigeist object
+	var el = new medigeist(style);
+	// initialize the svg root element		
+	var svg = el.svg([{id:"svg_00"+v, style:"background-color:#cccc88"}]);
+
+	var canvas =  el.g([{id:"canvas_00"+v,layer: svg.id, transform:"translate(2,5),scale(1)"}]);	
+	
+	var circle =  el.circle([{layer: canvas.id}]); 
+	
+	var rect =  el.rect([{layer: canvas.id}]); 
+	
+	var text =  el.text([{layer: canvas.id, data: "test"}]); 
+		
+}
+canvas_1 (1);
 	 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function notebook (v) {
@@ -51,7 +73,7 @@ function notebook (v) {
 	
 }		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-notebook (1);		
+notebook (2);		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -93,7 +115,7 @@ function svg_animateExchange (v) {
 		
 		style["animateExchange"][2][1].data = 2;
 		
-		console.log(aniPattern_001.children[2].children[0].children[3]);
+		//console.log(aniPattern_001.children[2].children[0].children[3]);
 		
 		
 		var aniPattern_002 =  el.animateExchange([{layer: canvas.id, id:"aniPattern_002_"+v, transform:"translate(31,15),scale(4),rotate(180)"}]); 
@@ -112,7 +134,7 @@ function svg_animateExchange (v) {
 		
 	}
 
-	 svg_animateExchange (2);
+	 svg_animateExchange (3);
 		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
@@ -221,7 +243,7 @@ function svg_animateExchangeNode (v) {
 		
 }
 
-svg_animateExchangeNode (3);
+svg_animateExchangeNode (4);
     
 }
 

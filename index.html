@@ -146,7 +146,7 @@
 var source = document.getElementById("siteTemplate_01").innerHTML;
 var template = Handlebars.compile(source);
 
-var amount = 3;
+var amount = 4;
 var data = {content: [] };
 
 for (i=1; i<=amount; i++) { data.content.push({"chapter": i});  
@@ -193,7 +193,7 @@ document.getElementById("hb_placeholder_01").innerHTML = template(data);
 var source = document.getElementById("siteTemplate_02").innerHTML;
 var template = Handlebars.compile(source);
 
-var amount = 3;
+var amount = 4;
 var data = {examples: [] };
 var screen_name, embedded_name;
 
@@ -232,6 +232,11 @@ document.getElementById("hb_placeholder_02").innerHTML = template(data);
    
    $('#full_screen_003').click(function () {
 	var el = document.getElementById('embedded_svg_003');   
+    screenfull.toggle(el);
+   });
+   
+   $('#full_screen_004').click(function () {
+	var el = document.getElementById('embedded_svg_004');   
     screenfull.toggle(el);
    });
  
