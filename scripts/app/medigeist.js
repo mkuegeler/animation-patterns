@@ -126,11 +126,13 @@ medigeist.prototype.isDefs = function (svg) {
 
 // var layer = "id_"+Math.random().toString();	
 
+
    var layer = this.createID(this.getDef().idLength); 
+   
 
-	if(document.getElementsByTagName("defs").item(0) === null) {
+	if(document.getElementsByTagName("defs").item(0) === null) { console.log(svg.id);
 
-		var defs = document.createElementNS(svg.xmlns,"defs");
+	var defs = document.createElementNS(svg.xmlns,"defs");
 	
 		         defs.setAttribute("id", layer);
 		
@@ -243,12 +245,12 @@ medigeist.prototype.svg = function(params)
 	
     var attributes = this.getDef().svg[0];
 	var svg = document.createElementNS(attributes.xmlns,"svg");
-	var defs = document.createElementNS(attributes.xmlns,"defs");
+	// var defs = document.createElementNS(attributes.xmlns,"defs");
 	// var def_id = "id_"+Math.random().toString();
 	
-	var def_id = this.createID(this.getDef().idLength); 
+	// var def_id = this.createID(this.getDef().idLength); 
 	
-	defs.setAttribute("id", def_id);
+	// defs.setAttribute("id", def_id);
 		
 	    for (var key in attributes) {
     	
@@ -268,7 +270,7 @@ medigeist.prototype.svg = function(params)
 		svg.setAttribute("viewBox",viewBox);
 	    			
         document.getElementById(this.getRoot()).appendChild(svg);
-		document.getElementById(id).appendChild(defs); 
+		// document.getElementById(id).appendChild(defs); 
 		
 		return attributes;
 		
@@ -357,7 +359,16 @@ medigeist.prototype.getClassPropertyValue = function()
 ///////////////////////////////////////////////////////////////////////////////
 // Wrapper functions (Core Geometry)
 ///////////////////////////////////////////////////////////////////////////////
-
+///////////////////////////////////////////////////////////////////////////////
+// wrapper function for element: defs
+medigeist.prototype.defs = function(params) {
+        // get the name of the method which identifies the type of the element
+	// var type = this.getNameOfCall(arguments.callee);
+        // if no params: set an empty array      
+         if (!params) { params = []; }
+        return this.geometry(this.checkParams(params,this.getNameOfCall(arguments.callee))[0]);
+	
+};
 ///////////////////////////////////////////////////////////////////////////////
 // wrapper function for core element: circle
 medigeist.prototype.circle = function (params) {
@@ -516,7 +527,7 @@ medigeist.prototype.linearGradient = function(params)
 
 	// if defs element is not existing in svg: create it
 	var layer = this.isDefs(svg);
-
+    
 
 	// var id = "id_"+Math.random().toString(); 	
 	var id = this.createID(this.getDef().idLength); 
@@ -526,9 +537,12 @@ medigeist.prototype.linearGradient = function(params)
 		  if(params[0].id) { id = params[0].id; params.shift();
 		        if (params.length === 0) { params = defaults; }
 		    } 
+		
+		  if(params[0].layer) {layer = params[0].layer;} 
+			
 	} 
 
-
+    
 
 	// overwrite default settings
 	var attributes = params ? params: defaults; 
@@ -548,25 +562,25 @@ medigeist.prototype.linearGradient = function(params)
 
 	}
 
-	var el = document.createElementNS(svg.xmlns,type);
+	var element = document.createElementNS(svg.xmlns,type);
 
-	el.setAttribute("id", id);
+	element.setAttribute("id", id);
 
-	el.setAttribute("layer", layer); 
+	element.setAttribute("layer", layer); 
 
 	if (gradient.length > 0) {
 	var gradient_attributes = gradient[0];
 
 	for (var key in gradient_attributes) {
 	
-	    el.setAttribute(key, gradient_attributes[key] );
+	    element.setAttribute(key, gradient_attributes[key] );
    
    
 	    }
 
 	}
 
-	document.getElementById(layer).appendChild(el);
+	document.getElementById(layer).appendChild(element);
 
 
 
@@ -587,7 +601,9 @@ medigeist.prototype.linearGradient = function(params)
 		    }
 
 
-	 } );	
+	 } );
+	 
+	 return element;	
 	
 };
 ///////////////////////////////////////////////////////////////////////////////
@@ -613,6 +629,8 @@ if (params) {
 	  if(params[0].id) { id = params[0].id; params.shift();
 	        if (params.length === 0) { params = defaults; }
 	    } 
+		
+		 if(params[0].layer) {layer = params[0].layer;} 
 } 
 
 
@@ -635,25 +653,25 @@ if (stops.length === 0) {
 
 }
 
-var el = document.createElementNS(svg.xmlns,type);
+var element = document.createElementNS(svg.xmlns,type);
 
-el.setAttribute("id", id);
+element.setAttribute("id", id);
 
-el.setAttribute("layer", layer); 
+element.setAttribute("layer", layer); 
 
 if (gradient.length > 0) {
 var gradient_attributes = gradient[0];
 
 for (var key in gradient_attributes) {
 	
-    el.setAttribute(key, gradient_attributes[key] );
+    element.setAttribute(key, gradient_attributes[key] );
    
    
     }
 
 }
 
-document.getElementById(layer).appendChild(el);
+document.getElementById(layer).appendChild(element);
 
 
 
@@ -675,7 +693,8 @@ stops.forEach(function (e) {
 
 
  } );
-	
+ 
+ return element;		
 	
 };
 ///////////////////////////////////////////////////////////////////////////////
@@ -688,10 +707,11 @@ var defaults = this.getDef().pattern;
 var svg = this.getDef().svg[0];
 
 // debug
-// console.log(defaults);
+// console.log(svg);
 
 // if defs element is not existing in svg: create it
 var layer = this.isDefs(svg);
+
 
 var id = this.createID(this.getDef().idLength); 
 // var id = "id_"+Math.random().toString(); 
@@ -701,6 +721,8 @@ if (params) {
 	  if(params[0].id) { id = params[0].id; params.shift();
 	        if (params.length === 0) { params = defaults; }
 	    } 
+		
+		 
 } 
 
 
@@ -723,25 +745,25 @@ if (elements.length === 0) {
 
 }
 
-var el = document.createElementNS(svg.xmlns,type);
+var element = document.createElementNS(svg.xmlns,type);
 
-el.setAttribute("id", id);
+element.setAttribute("id", id);
 
-el.setAttribute("layer", layer); 
+element.setAttribute("layer", layer); 
 
 if (pattern.length > 0) {
 var pattern_attributes = pattern[0];
 
 for (var key in pattern_attributes) {
 	
-    el.setAttribute(key, pattern_attributes[key] );
+    element.setAttribute(key, pattern_attributes[key] );
    
    
     }
 
 }
 
-document.getElementById(layer).appendChild(el);
+document.getElementById(layer).appendChild(element);
 
 var sub_el;
 
@@ -767,6 +789,7 @@ elements.forEach(function (e) {
 
  } );
 	
+ return element;
 	
 };
 

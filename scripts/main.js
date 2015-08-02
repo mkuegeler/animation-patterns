@@ -25,22 +25,104 @@ function canvas_1 (v) {
 	// get instance of medigeist object
 	var el = new medigeist(style);
 	// initialize the svg root element		
-	var svg = el.svg([{id:"svg_00"+v, style:"background-color:#cccc88"}]);
+	var svg = el.svg([{id:"svg_00"+v, style:"background-color:#e8e8e8"}]);
+	
+	// var defs = el.defs([{layer: svg.id}]);
 
-	var canvas =  el.g([{id:"canvas_00"+v,layer: svg.id, transform:"translate(2,5),scale(1)"}]);	
+	var canvas =  el.g([{id:"canvas_00"+v,layer: svg.id,transform:"translate(4,4)"}]);	
 	
-	var circle =  el.circle([{layer: canvas.id}]); 
+		
+	var circle =  el.circle([{layer: canvas.id, transform:"translate(2,2),scale(2)"}]); 
 	
-	var rect =  el.rect([{layer: canvas.id}]); 
+	var rect =  el.rect([{layer: canvas.id, transform:"translate(5,0),scale(4)"}]); 
 	
-	// var text =  el.text([{layer: canvas.id}, { data: "test"}]); 
+	var text =  el.text([{layer: canvas.id, transform:"translate(10,4),scale(1)"},{data: "Sample Text"}]); 
 	
-	var text =  el.text([{layer: canvas.id},{data: "1"}]); 
+	var line =  el.line([{layer: canvas.id, transform:"translate(18,4),scale(2)"}]); 
+	
+	var polygon = el.polygon([{layer: canvas.id, transform:"translate(20,1),scale(3)"}]); 
+	
+	var path = el.path([{layer: canvas.id, transform:"translate(2,-2)"}]); 
+	
+	var ellipse = el.ellipse([{layer: canvas.id, transform:"translate(38,2)"}]); 
+	
+	var polyline = el.polyline([{layer: canvas.id, transform:"translate(-1,-1)"}]); 
+	
+	var linearGradient = el.linearGradient(); 
+			
+	var linearGradientRect = el.rect([{layer: canvas.id, transform:"translate(0,6),scale(6)", style: "fill:url(#"+linearGradient.id+");" }]);
+	
+	var radialGradient = el.radialGradient(); 
+			
+	var radialGradientRect = el.rect([{layer: canvas.id, transform:"translate(8,6),scale(6)", style: "fill:url(#"+radialGradient.id+");" }]);
+	
+	var pattern = el.pattern(); 
+			
+	var patternRect = el.rect([{layer: canvas.id, transform:"translate(16,6),scale(6)",  width:5, style: "fill:url(#"+pattern.id+"); stroke:#999999;stroke-width:0.01px;" }]);
+	
+	// console.log(pattern.id);
+			
+	el.writeCode (code_area);
+	
 		
 }
 canvas_1 (1);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function canvas_2 (v) {
+
+    style.root = "embedded_svg_00"+v;
+	var code_area = "embedded_svg_00"+v+"_code";
+
+	// get instance of medigeist object
+	var el = new medigeist(style);
+	// initialize the svg root element		
+	var svg = el.svg([{id:"svg_00"+v, style:"background-color:#e8e8e8"}]);
+	
+	// var defs = el.defs([{layer: svg.id}]);
+
+	var canvas =  el.g([{id:"canvas_00"+v,layer: svg.id,transform:"translate(4,4)"}]);	
+	
+		
+	var circle =  el.circle([{layer: canvas.id, transform:"translate(2,2),scale(2)"}]); 
+	
+	var rect =  el.rect([{layer: canvas.id, transform:"translate(5,0),scale(4)"}]); 
+	
+	var text =  el.text([{layer: canvas.id, transform:"translate(10,4),scale(1)"},{data: "Sample Text"}]); 
+	
+	var line =  el.line([{layer: canvas.id, transform:"translate(18,4),scale(2)"}]); 
+	
+	var polygon = el.polygon([{layer: canvas.id, transform:"translate(20,1),scale(3)"}]); 
+	
+	var path = el.path([{layer: canvas.id, transform:"translate(2,-2)"}]); 
+	
+	var ellipse = el.ellipse([{layer: canvas.id, transform:"translate(38,2)"}]); 
+	
+	var polyline = el.polyline([{layer: canvas.id, transform:"translate(-1,-1)"}]); 
+	
+	//var linearGradient = el.linearGradient([{layer:defs.id}]); 
+			
+	//var linearGradientRect = el.rect([{layer: canvas.id, transform:"translate(0,6),scale(6)", style: "fill:url(#"+linearGradient.id+");" }]);
+	
+	//var radialGradient = el.radialGradient([{layer:defs.id}]); 
+			
+	//var radialGradientRect = el.rect([{layer: canvas.id, transform:"translate(8,6),scale(6)", style: "fill:url(#"+radialGradient.id+");" }]);
+	
+	var pattern = el.pattern(); 
+			
+	var patternRect = el.rect([{layer: canvas.id, transform:"translate(16,6),scale(6)",  width:5, style: "fill:url(#"+pattern.id+"); stroke:#999999;stroke-width:0.01px;" }]);
+	
+	//console.log(pattern.id);
+			
+	el.writeCode (code_area);
+	
+	
+		
+}
+// canvas_2 (2);
 	 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 function notebook (v) {
 	
     style.root = "embedded_svg_00"+v;
@@ -75,7 +157,7 @@ function notebook (v) {
 	
 }		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-notebook (2);		
+// notebook (2);		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -136,7 +218,7 @@ function svg_animateExchange (v) {
 		
 	}
 
-	 svg_animateExchange (3);
+//	 svg_animateExchange (3);
 		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
@@ -245,7 +327,7 @@ function svg_animateExchangeNode (v) {
 		
 }
 
-svg_animateExchangeNode (4);
+// svg_animateExchangeNode (4);
     
 }
 

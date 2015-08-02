@@ -50,6 +50,9 @@ style: "background-color:#e8e8e8;"
 // placeholder for group element
 g: [{type:"g"}], 
 
+// placeholder for defs element
+defs: [{type:"defs"}], 
+
 // core svg elements
 circle: [
 	{r: 1, cx : 0, cy: 0, style: default_style}
@@ -85,7 +88,7 @@ ellipse: [
 ],
 
 polyline: [
-{points: "45,5 45,3 50,3 50,5 48,5 48,4", style:default_style}
+{points: "45,5 45,3 50,3 50,5 48,5 48,4", style:"fill:none;stroke:#999999;stroke-width:0.10px;"}
 ],
 
 text: [
@@ -105,15 +108,15 @@ linearGradient: [
 
 // color = stop-color, opacity = stop-opacity. '-' not allowed as character in variables
 radialGradient: [
-{fx: "50%", fy:"50%", r:"100%", spreadMethod: "pad"},
-{offset:"5%",  color: "#ff0000", opacity:"1"},
-{offset:"85%", color: "#0000ff", opacity:"1"}
+{fx: "50%", fy:"50%", r:"95%", spreadMethod: "pad"},
+{offset:"5%",  color: "#ff0000", opacity:"0.3"},
+{offset:"85%", color: "#000000", opacity:"0.5"}
 ],
 
 pattern: [
-{x: 0.1, y:0, width:2, height:2, patternUnits: "userSpaceOnUse"},
-{type: "circle", r: 0.8, cx : 1, cy: 1, style: default_style},
-{type: "circle",r: 0.9, cx : 1, cy: 1,  style: default_style}
+{x: 0, y:0, width:1, height:1, patternUnits: "userSpaceOnUse"},
+{type: "circle", r: 0.35, cx : 0.5, cy: 0.5, style: default_style},
+// {type: "circle",r: 0.9, cx : 1, cy: 1,  style: default_style}
 ],
 
 animate: [
