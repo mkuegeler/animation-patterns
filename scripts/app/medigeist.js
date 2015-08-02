@@ -482,28 +482,27 @@ medigeist.prototype.animateMotion = function(params) {
 // wrapper function for core element: text
 medigeist.prototype.text = function(params)
 {
-    var data;    
-	// text data can be a simple string
-	if (typeof(params) == 'string') {  data = params; }        
-        // if params array contains data as first and only element      
-        if (params && params[0].data) {  data = params[0].data; }
-	    if (params && params[1].data) {  data = params[1].data; }
+    
+	var data;    
+		// text data can be a simple string
+		if (typeof(params) == 'string') {  data = params; }        
+	        // if params array contains data as first and only element      
+	        if (params && params[0].data) {  data = params[0].data; }
+		    if (params && params[1].data) {  data = params[1].data; }
 
-        // get the name of the method which identifies the type of the element
-	// var type = this.getNameOfCall(arguments.callee);
-        // if no params: set an empty array      
-        if (!params) {  params = [];  data = this.getDef().text[1].data; }
-        var element = this.geometry(this.checkParams(params,this.getNameOfCall(arguments.callee))[0]);
+	        // get the name of the method which identifies the type of the element
+		// var type = this.getNameOfCall(arguments.callee);
+	        // if no params: set an empty array      
+	        if (!params) {  params = [];  data = this.getDef().text[1].data; }
+	        var element = this.geometry(this.checkParams(params,this.getNameOfCall(arguments.callee))[0]);
 	
-        var el =  document.getElementById(element.id);
+	        var el =  document.getElementById(element.id);
 
-        // data as an attribute is not required because a text-node is added
-        if (el.getAttribute("data")) {el.removeAttribute("data"); }  
-	    el.appendChild(document.createTextNode(data));
+	        // data as an attribute is not required because a text-node is added
+	        if (el.getAttribute("data")) {el.removeAttribute("data"); }  
+		    el.appendChild(document.createTextNode(data));
 		
-		return element;
-	
-	
+			return element;
 
 };
 ///////////////////////////////////////////////////////////////////////////////
@@ -1008,12 +1007,6 @@ medigeist.prototype.animateExchange = function (params) {
 
 	var arcc_003_1 =  el.element([traceLine[2]]);
 	
-	// var arcc_003_1 =  el.element([{layer: group.id, block:element, transform:"translate(0,0)"}]);
-	
-	// console.log(traceLine[2]);
-	
-	// console.log(arcc_003_1);
-	
 	var node_1 = block[1];
 	
 	node_1[0].layer = group.id;
@@ -1029,20 +1022,7 @@ medigeist.prototype.animateExchange = function (params) {
 	
 	var node_003_1 =  el.element([node_1[1]]); 
 	
-	// var grou_003_1 =  el.g([{ layer: group.id, transform:"translate(0,0), rotate(0)"}]); // 90
-	
-	// var node_003_1 =  el.element([{layer: grou_003_1.id, block:"element_001", data: "1", transform:"rotate(0)"}]); 
-	
-	
-	// var anim_003_1b =  el.animateMotion([{layer: node_003_1.id, id: animateMotion_1_id, path: path_003_1, begin: node_003_1.id+".click", dur:3,  rotate:0}]);
-	
-	// var anim_003_1bb =  el.animateTransform([{layer: node_003_1.id, values:"4,0;0,0", begin:anim_003_1b.id+".end", dur:1, fill:"freeze", repeatCount: 1}]);
-	
-	// var anim_003_1a = el.animate([{layer: grou_003_1.id, attributeType:"CSS", attributeName:"visibility", from:"visible", begin: animateMotion_1_id+".end-1.5", to:"hidden",dur:3}]);
-	
-	// var anim_003_1c = el.animate([{layer: grou_003_1.id, attributeType:"CSS", attributeName:"visibility", from:"hidden", begin: animateMotion_2_id+".end-1.5", to:"visible",dur:3}]);
-	
-	
+		
 	node_1[2].layer = node_003_1.id;
 	
 	node_1[2].id = animateMotion_1_id; 
@@ -1081,18 +1061,7 @@ medigeist.prototype.animateExchange = function (params) {
 	
 	el.getDef()[element][0][0].d = path_003_2; 
 	
-	// var grou_003_2 =  el.g([{ layer: group.id, transform:"translate(4,0), rotate(90)", style:"visibility:hidden" }]); // 90
-	
-	// var node_003_2 =  el.element([{layer: grou_003_2.id, block:"element_001", data: "1", transform:"rotate(270)"}]); 
-	
-	// var anim_003_2b =  el.animateMotion([{layer: node_003_2.id, id: animateMotion_2_id, path: path_003_2, begin: node_003_2.id+".click", dur:3,  rotate:0}]);
-	
-	// var anim_003_2bb =  el.animateTransform([{layer: node_003_2.id, values:"0,0;4,0", begin:anim_003_2b.id+".end", dur:1, repeatCount: 1}]);
-	
-	// var anim_003_2a = el.animate([{layer: grou_003_2.id, attributeType:"CSS", attributeName:"visibility", from:"hidden", begin: animateMotion_1_id+".end-1.5", to:"visible",dur:3}]);
-	
-	// var anim_003_2c = el.animate([{layer: grou_003_2.id, attributeType:"CSS", attributeName:"visibility", from:"visible", begin: animateMotion_2_id+".end-1.5", to:"hidden",dur:3}]);
-	
+		
 	var node_2 = block[2];
 	
 	node_2[0].layer = group.id;
@@ -1140,6 +1109,123 @@ medigeist.prototype.animateExchange = function (params) {
 	node_2[5].begin = animateMotion_2_id+".end-1.5";
 	
 	var anim_003_2c = el.animate([node_2[5]]);
+	
+	
+	return group;
+	
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// animation pattern: exchange two node elements
+medigeist.prototype.animateExchangeNode = function (params) {
+	
+	var el = this;
+	var element;
+	var children = null;
+	var path, arc, g1, node, a1, a2, a3, id;
+	var i = 0;
+	
+	if (!params) {  params = []; }
+	
+	var block_id = params[0].block ? params[0].block: this.getNameOfCall(arguments.callee); // if no params: use default values defined in style.js with same name as function
+		
+	var block = this.getDef()[block_id] ? this.getDef()[block_id]: this.getDef().default; // default: name of function = animateExchangeNode
+
+    var group = this.g(params);
+	
+	var nodeElement = block[0][0];	
+	
+	var arcs = block[1];
+	
+	var arclist = [];
+	
+	arcs.forEach(function(e) { el.getDef()[nodeElement.block][0][0].d = e.d;  
+		                                nodeElement.layer = group.id; 
+							                    nodeElement.id = el.createID(el.getDef().idLength); 
+												nodeElement.transform = e.transform;
+							                                        arclist.push(el.element([nodeElement]) );    }); 
+	
+		
+	// the circle
+	
+	//var element1 = traceLine[2].block;
+		
+	//el.getDef()[arcs[2].block][0][0].d = arcs[0].d; 
+	
+	//arcs[2].layer = group.id;
+	
+	//arcs[2].id = el.createID(this.getDef().idLength);
+
+	//var arc1 =  el.element([arcs[2]]);
+	
+	
+		
+	//var element2 = traceLine[2].block;
+		
+	//el.getDef()[arcs[2].block][0][0].d = arcs[1].d; 
+	
+	//arcs[2].layer = group.id;
+	
+	//arcs[2].id = el.createID(this.getDef().idLength);	
+
+	//var arc2 =  el.element([arcs[2]]);
+		
+	
+	// First Node
+	
+	var node_1 = block[2];
+	
+	node_1[0].layer = group.id;
+	
+	node_1[0].id = el.createID(this.getDef().idLength); 
+	
+	var ElementGroup1 =  el.g([node_1[0]]); // 90
+	
+	
+	node_1[1].layer = ElementGroup1.id;
+	
+	node_1[1].id = el.createID(this.getDef().idLength); 
+	
+	var nodeElement_1 =  el.element([node_1[1]]); 
+	
+	// Second Node
+	
+	var node_2 = block[3];
+	
+	node_2[0].layer = group.id;
+	
+	node_2[0].id = el.createID(this.getDef().idLength); 
+	
+	var ElementGroup2 =  el.g([node_2[0]]); // 90
+	
+	
+	node_2[1].layer = ElementGroup2.id;
+	
+	node_2[1].id = el.createID(this.getDef().idLength); 
+	
+	var nodeElement_2 =  el.element([node_2[1]]); 
+	
+	
+	// Third Node
+	
+	var node_3 = block[4];
+	
+	node_3[0].layer = group.id;
+	
+	node_3[0].id = el.createID(this.getDef().idLength); 
+	
+	var ElementGroup3 =  el.g([node_3[0]]); // 90
+	
+	
+	node_3[1].layer = ElementGroup3.id;
+	
+	node_3[1].id = el.createID(this.getDef().idLength); 
+	
+	var nodeElement_3 =  el.element([node_3[1]]); 
+	
+	
+	
+	
 	
 	
 	return group;

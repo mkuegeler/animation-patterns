@@ -138,71 +138,9 @@ set: [
 animateMotion: [
 { path: "M 0,0 A1,1 0 1,1 4,0", dur:2,}
 ],	
-	
-	
-// composite elements
 
-cnode: [
-{transform:"translate(0,0)"},
-{r: 1, cx : 0, cy: 0, style: default_style},	
-{x : 0, y: 0.45, style: "stroke:none; fill:#ff0000;font-size: 1pt; text-anchor: middle;"},
-{data: "0"}
-],
-
-rnode: [
-{transform:"scale(2)"},
-{x : 0, y: 0, width:1, height:3, rx:0.1, ry:0.1, style: "fill:#cc88ff;stroke:#999999;stroke-width:0.01px;"},	
-{x : 1, y: 1.5, style: "stroke:none; fill:#0000ff;font-size: 1pt; text-anchor: middle;"},
-{data: "0"}
-],
 	
 /// custom styles
-cnode_001: [
-{transform:"translate(0,0)"},
-{r: 1, cx : 0, cy: 0, style: "fill:#e8e8e8;stroke:#998866;stroke-width:0.05px;"},	
-{x : 0, y: 0.45, style: "stroke:none; fill:#ff0000;font-size: 1pt; text-anchor: middle;"},
-{data: "0"}
-],
-
-
-cnode_002: [
-{transform:"translate(0,0)"},
-{r: 1, cx : 0, cy: 0, style: "fill:#e8e8e8;stroke:#998866;stroke-width:0.05px;"},	
-{x : 0, y: 0.45, style: "stroke:none; fill:#ff0000;font-size: 1pt; text-anchor: middle;"},
-{data: "0"}
-],
-
-rnode_001: [
-{transform:"scale(2)"},
-{x : 0, y: 0, width:1.4, height:5, rx:0.1, ry:0.1, style: "fill:#ffcc88;stroke:#9999ff;stroke-width:0.02px;"},	
-{x : 1.5, y: 1.5, style: "stroke:none; fill:#00ccff;font-size: 0.8pt; text-anchor: middle;"},
-{data: "0"}
-],
-
-
-// Block definitions (type attribute required). Obsolete! See element definition instead
-
-block: [
-{type: "g", transform:"scale(1)"},
-{type: "circle", x : 0, y: 0.45, style: "stroke:none; fill:#ff0000;font-size: 1pt; text-anchor: middle;"},
-{type: "content", data: "0"},	
-{type: "text", x : 1.5, y: 1.5, style: "stroke:none; fill:#00ccff;font-size: 0.8pt; text-anchor: middle;"}
-],	
-
-block_001: [
-{type: "g", transform:"scale(1)"},
-{type: "rect", x : 0, y: 0, width:1, height:3, rx:0.1, ry:0.1, style: "fill:#cc88ff;stroke:#999999;stroke-width:0.01px;"},
-{type: "content", data: "just a test"},
-{type: "text", x : 1.5, y: 1.5, style: "stroke:none; fill:#00ccff;font-size: 0.8pt; text-anchor: middle;"},
-
-],	
-
-block_002: [
-{type: "g",  transform:"translate(10,10),scale(2)"},
-{type: "circle", r: 1, cx : 0, cy: 0, style: "fill:#e8e8e8;stroke:#998866;stroke-width:0.05px;"},
-{type: "content", data: "0"},	
-{type: "text", x : 0, y: 0.45, style: "stroke:none; fill:#ff0000;font-size: 1pt; text-anchor: middle;"},
-],	
 
 // block elements (example)
 
@@ -265,19 +203,6 @@ element_003: [
 ]	
 ],
 
-
-// M 1,1 v-1.50 a1.50,1.50 0 1,1 -1.50,1.50
-// M5,5 C5,1 0,0 0,0 S0,0 
-// M15,25 C5,25 0.5,20 0.5,15 C0.5,5 5,0.5 15,0.5 C20,0.5 25,5 25,15 C25,20 20,25 15,25 z
-// M0,0 5,5
-// M0,0 0,5 5,5 5,0
-
-// arc top
-// M 0,5 A5,5 0 1,1 10,5
-
-// arc buttom
-// M 0,5 A5,5 0 1,0 10,5
-
 element_004: [
 [
    {typeOf: "path", d: "M 0,1 A1,1 0 1,1 2,1", style: "fill:none;stroke:#000000;stroke-width:0.025px;"}
@@ -328,27 +253,35 @@ element_008: [
                      // M-1,0 a1,1 0 1,0 2,0 a1,1 0 1,0 -2,0                    
 ]
 ],
-
+// arc
 element_009: [
 
 [
    {typeOf: "path", d: "M 0,0 A-1,-1 0 0,1 0,4", style: "fill:none;stroke:#000000;stroke-width:0.01px;"}
-            
-			// M 0,0 A-1,-1 0 0,1 0,4 (vertical right, from:top, to: buttom)
-            
-			
-			// M 0,0 A-1,-1 0 1,0 0,4 (vertical left, from:top, to: buttom)
+   
                               
 ]
 
 ],
+
+// arc
+animateExchange_arc: [
+
+[
+   {typeOf: "path", d: "M 0,0 A-1,-1 0 0,1 0,4", style: "fill:none;stroke:#000000;stroke-width:0.01px;"}
+   
+                              
+]
+
+],
+
 
 animateExchange: [
 
 [
 	{d: "M 0,0 A1,1 0 1,1 4,0"}, // 0
 	{d: "M 0,0 A-1,-1 0 1,0 0,4"},
-    {block:"element_009", transform:"translate(0,0)"}, // 1. Arc, layer: canvas.id,  style["element_009"][0][0].d = {0};   
+    {block:"animateExchange_arc", transform:"translate(0,0)"}, // 1. Arc, layer: canvas.id,  style["element_009"][0][0].d = {0};   
                               
 ],
 
@@ -379,16 +312,24 @@ animateExchange: [
 
 ],
 
-animateExchange_001: [
-
+animateExchangeNode: [
+// the node element: style["animateExchangeNode"][0]
 [
-	{d: "M 0,0 A1,1 0 1,1 4,0"}, // 0
-	{d: "M 0,0 A-1,-1 0 1,0 0,4"},
-    {block:"element_009", transform:"translate(0,0)"}, // 1. Arc, layer: canvas.id,  style["element_009"][0][0].d = {0};   
+	{block:"element_009", transform:"translate(0,0)"}, // 1. Arc, layer: canvas.id,  style["element_009"][0][0].d = {0};   
                               
 ],
 
+// arcs as trace lines: style["animateExchangeNode"][1]
+[
+	{d: "M 0,0 A1,1 0 1,1 4,0", transform: "translate(0,0)"},   // 0
+	{d: "M 0,0 A-1,-1 0 1,0 4,0", transform: "translate(0,0)"}, // 1
+	{d: "M 0,0 A1,1 0 1,1 4,0", transform: "translate(4,0)"},   // 2
+	{d: "M 0,0 A-1,-1 0 1,0 4,0", transform: "translate(4,0)"}  // 3
+    // {block:"element_009", transform:"translate(0,0)"}, // 1. Arc, layer: canvas.id,  style["element_009"][0][0].d = {0};   
+                              
+],
 
+// transform element 1: style["animateExchangeNode"][2]
 [
 	//{d: "M 0,0 A1,1 0 1,1 4,0"}, // 0
     //{block:"element_009", transform:"translate(0,0)"}, // 1. Arc, layer: canvas.id,  style["element_009"][0][0].d = {0};
@@ -401,11 +342,24 @@ animateExchange_001: [
                               
 ],
 
+// transform element 2: style["animateExchangeNode"][3]
 [
 	//{d: "M 0,0 A-1,-1 0 1,0 0,4"}, // 0
     //{block:"element_009", transform:"translate(0,0)"}, // 1. Arc, layer: canvas.id,  style["element_009"][0][0].d = {0};
-    {transform:"translate(4,0), rotate(90)", style:"visibility:hidden"}, // 2. group, layer: canvas.id,
-    {block:"element_001", data: "1", transform:"rotate(270)"}, // 3. Node, Child of 2
+    {transform:"translate(4,0), rotate(90)", style:"visibility:visible"}, // 2. group, layer: canvas.id,
+    {block:"element_001", data: "2", transform:"rotate(270)"}, // 3. Node, Child of 2
+    {dur:3, rotate:0}, // 4. Child of 3
+    {values:"0,0;4,0", dur:1, repeatCount: 1}, // 5. Child of 3
+    {attributeType:"CSS", attributeName:"visibility", from:"hidden",  to:"visible",dur:3}, // 6. Child of 3    1 
+    {attributeType:"CSS", attributeName:"visibility", from:"visible", to:"hidden",dur:3}	 // 7. Child of 3	
+                              
+],
+// transform element 3: style["animateExchangeNode"][4]
+[
+	//{d: "M 0,0 A-1,-1 0 1,0 0,4"}, // 0
+    //{block:"element_009", transform:"translate(0,0)"}, // 1. Arc, layer: canvas.id,  style["element_009"][0][0].d = {0};
+    {transform:"translate(8,0), rotate(90)", style:"visibility:hidden"}, // 2. group, layer: canvas.id,
+    {block:"element_001", data: "0", transform:"rotate(270)"}, // 3. Node, Child of 2
     {dur:3, rotate:0}, // 4. Child of 3
     {values:"0,0;4,0", dur:1, repeatCount: 1}, // 5. Child of 3
     {attributeType:"CSS", attributeName:"visibility", from:"hidden",  to:"visible",dur:3}, // 6. Child of 3    1 
@@ -414,6 +368,7 @@ animateExchange_001: [
 ]
 
 ],
+
 button_001: [
 [
    {typeOf: "circle", r: 0.8, cx : 0, cy: 0, style: "fill:#cccccc"}
